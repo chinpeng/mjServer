@@ -42,13 +42,15 @@ public class ChatService implements BaseService{
 		ChannelGroup cg =  room.getChannels();
 		
 		Map<String,String> responseMap = new HashMap<String,String>();
-		responseMap.put("msg", "你逗我");
+		String msg = (String) request.getAttribute("msg");
+		responseMap.put("msg", msg);
 		responseMap.put("type","text");
 		/**
 		 * 几号位
 		 */
 		Gson gson = new Gson();
-		cg.writeAndFlush(gson.toJson(responseMap)+"\r\n",  ChannelMatchers.isNot(request.getChannel()));
+		cg.writeAndFlush(gson.toJson(responseMap)+"\r\n",  
+				ChannelMatchers.isNot(request.getChannel()));
 		
 	}
 	

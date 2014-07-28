@@ -38,12 +38,27 @@ public class SecureChatServer {
     public void run() throws InterruptedException {
 	    ClassUtils.scan();
 	    //测试用户缓存
-	    	CacheManager singletonManager = CacheManager.create();
+/*	    	CacheManager singletonManager = CacheManager.create();
 		Cache memoryOnlyCache = new Cache("user-"+"1", 5000, false, false, 1800, 1800);
 		singletonManager.addCache(memoryOnlyCache);
 		Cache user = singletonManager.getCache("user-1");
 		Element element = new Element("status", User.OUTSIDE_THE_ROOM);
 		user.put(element);
+		
+		Cache memoryOnlyCache2 = new Cache("user-"+"2", 5000, false, false, 1800, 1800);
+		singletonManager.addCache(memoryOnlyCache2);
+		Cache user2 = singletonManager.getCache("user-2");
+		Element element2 = new Element("status", User.OUTSIDE_THE_ROOM);
+		user2.put(element2);*/
+	    CacheManager singletonManager = CacheManager.create();
+	    for(int i = 0; i<10 ;i++){
+		    	String userid = new Integer(i).toString();
+			Cache memoryOnlyCache2 = new Cache("user-"+userid, 5000, false, false, 1800, 1800);
+			singletonManager.addCache(memoryOnlyCache2);
+			Cache user2 = singletonManager.getCache("user-"+userid);
+			Element element2 = new Element("status", User.OUTSIDE_THE_ROOM);
+			user2.put(element2);
+	    }
 	    
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();

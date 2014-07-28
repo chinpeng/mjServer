@@ -52,7 +52,6 @@ public class EnterRoomService implements BaseService{
 		Element e2 = new Element("roomNum", roomid);
 		user.put(e1);
 		user.put(e2);
-
 	}
 	
 }
