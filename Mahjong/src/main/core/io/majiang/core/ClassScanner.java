@@ -1,4 +1,4 @@
-package io.majiang.utils;
+package io.majiang.core;
 
 
 
@@ -21,7 +21,7 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-public class ClassUtils {
+public class ClassScanner {
 	private static Map<String, Class<?>> uriMap;
 	private static FilenameFilter myFilter;  
 

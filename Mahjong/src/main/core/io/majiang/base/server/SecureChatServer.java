@@ -18,8 +18,8 @@ package io.majiang.base.server;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
+import io.majiang.core.ClassScanner;
 import io.majiang.entity.User;
-import io.majiang.utils.ClassUtils;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -36,7 +36,7 @@ public class SecureChatServer {
     }
 
     public void run() throws InterruptedException {
-	    ClassUtils.scan();
+	    ClassScanner.scan();
 	    //测试用户缓存
 /*	    	CacheManager singletonManager = CacheManager.create();
 		Cache memoryOnlyCache = new Cache("user-"+"1", 5000, false, false, 1800, 1800);
